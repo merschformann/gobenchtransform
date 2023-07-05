@@ -41,7 +41,7 @@ func parseLine(line string) (name string, ops int, nsPerOp int, match bool, err 
 
 // ConvertToCSV converts the given stream of go benchmark output into CSV
 // format. The output is written to the given writer.
-func ConvertToCSV(input io.Reader, output io.Writer) error {
+func ConvertToCSV(input io.Reader, output io.Writer, quiet bool) error {
 	// Read the input line by line.
 	firstLine := true
 	scanner := bufio.NewScanner(input)
@@ -59,7 +59,11 @@ func ConvertToCSV(input io.Reader, output io.Writer) error {
 
 		// Write the header to the output.
 		if firstLine {
-			_, err = fmt.Fprintln(output, "name,ops,ns_per_op")
+			header := "name,ops,ns_per_op"
+			if !quiet {
+				fmt.Print(header)
+			}
+			_, err = fmt.Fprintln(output, header)
 			if err != nil {
 				return fmt.Errorf("failed to write header: %w", err)
 			}
@@ -67,7 +71,11 @@ func ConvertToCSV(input io.Reader, output io.Writer) error {
 		}
 
 		// Write the benchmark result to the output.
-		_, err = fmt.Fprintf(output, "%s,%d,%d\n", name, ops, nsPerOp)
+		outputLine := fmt.Sprintf("%s,%d,%d", name, ops, nsPerOp)
+		if !quiet {
+			fmt.Println(outputLine)
+		}
+		_, err = fmt.Fprintln(output, outputLine)
 		if err != nil {
 			return fmt.Errorf("failed to write benchmark result: %w", err)
 		}

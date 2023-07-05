@@ -5,7 +5,7 @@ Transforms go test bench output to CSV
 ## Usage
 
 ```bash
-go test -bench . -benchmem | gobenchtransform
+go test -bench . -benchmem | gobenchtransform > bench.csv
 ```
 
 ## Installation

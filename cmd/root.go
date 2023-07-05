@@ -20,6 +20,10 @@ var rootCmd = &cobra.Command{
 		if err != nil {
 			panic(err)
 		}
+		quiet, err := cmd.Flags().GetBool("quiet")
+		if err != nil {
+			panic(err)
+		}
 
 		// Get input and output streams.
 		var input *os.File
@@ -42,7 +46,7 @@ var rootCmd = &cobra.Command{
 		}
 
 		// Convert the input to CSV.
-		err = benchconvert.ConvertToCSV(input, output)
+		err = benchconvert.ConvertToCSV(input, output, quiet)
 		if err != nil {
 			panic(err)
 		}
@@ -61,4 +65,5 @@ func Execute() {
 func init() {
 	rootCmd.Flags().StringP("input", "i", "", "input file (default is stdin)")
 	rootCmd.Flags().StringP("output", "o", "", "output file (default is stdout)")
+	rootCmd.Flags().BoolP("quiet", "q", false, "suppress repeating output to stdout")
 }
