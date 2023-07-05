@@ -1,0 +1,30 @@
+goos: linux
+goarch: amd64
+pkg: github.com/nextmv-io/sandbox/users/merschformann/playground/golang/windowcheck
+cpu: AMD Ryzen 9 3900X 12-Core Processor            
+BenchmarkWindowIntSlice/1-1000-24          50503             24077 ns/op
+BenchmarkWindowIntSlice/10-1000-24         51342             21092 ns/op
+BenchmarkWindowIntSlice/100-1000-24        56757             20821 ns/op
+BenchmarkWindowIntBinarySearch/1-1000-24                  140304              8271 ns/op
+BenchmarkWindowIntBinarySearch/10-1000-24                  54032             23403 ns/op
+BenchmarkWindowIntBinarySearch/100-1000-24                 29750             40428 ns/op
+BenchmarkWindowIntCheckMap/1-1000-24                       36156             33919 ns/op
+BenchmarkWindowIntCheckMap/10-1000-24                      33849             34754 ns/op
+BenchmarkWindowIntCheckMap/100-1000-24                     32281             35435 ns/op
+BenchmarkWindowIntSliceLookup/1-1000-24                   308128              4178 ns/op
+BenchmarkWindowIntSliceLookup/10-1000-24                   63182             20502 ns/op
+BenchmarkWindowIntSliceLookup/100-1000-24                  10000            106950 ns/op
+BenchmarkWindowTimeSlice/1-1000-24                         47944             31120 ns/op
+BenchmarkWindowTimeSlice/10-1000-24                         6510            222141 ns/op
+BenchmarkWindowTimeSlice/100-1000-24                        1119           1539416 ns/op
+BenchmarkWindowTimeBinarySearch/1-1000-24                  44658             26089 ns/op
+BenchmarkWindowTimeBinarySearch/10-1000-24                 23086             54177 ns/op
+BenchmarkWindowTimeBinarySearch/100-1000-24                15158             78907 ns/op
+BenchmarkWindowTimeMap/1-1000-24                           36402             32488 ns/op
+BenchmarkWindowTimeMap/10-1000-24                          33466             35136 ns/op
+BenchmarkWindowTimeMap/100-1000-24                         35415             34882 ns/op
+BenchmarkWindowTimeSliceLookup/1-1000-24                   43683             26445 ns/op
+BenchmarkWindowTimeSliceLookup/10-1000-24                  48110             21940 ns/op
+BenchmarkWindowTimeSliceLookup/100-1000-24                 52995             21762 ns/op
+PASS
+ok      github.com/nextmv-io/sandbox/users/merschformann/playground/golang/windowcheck  38.981s
