@@ -10,7 +10,7 @@ import (
 var rootCmd = &cobra.Command{
 	Use:   "gobenchtransform",
 	Short: "Transform Go benchmark results into a format that can be used by other tools.",
-	Run: func(cmd *cobra.Command, args []string) {
+	Run: func(cmd *cobra.Command, _ []string) {
 		// Get the input and output files.
 		inputFile, err := cmd.Flags().GetString("input")
 		if err != nil {
