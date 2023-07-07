@@ -1,31 +1,25 @@
 # gobenchtransform
 
-Transforms go test bench output to CSV.
+Transforms `go test` benchmark output to CSV.
 
 ## Usage
 
 ```bash
-go test -bench . -benchmem | gobenchtransform > bench.csv
+go test -bench . | gobenchtransform > bench.csv
 ```
+
+Output:
+
+```csv
+name,ops,ns_per_op
+Slice-24,20372328,55.510000
+Map-24,86512916,11.610000
+```
+
+Please refer to the help manual (`gobenchtransform -h`) for further information. The example above is located in the `examples/` directory.
 
 ## Installation
 
 ```bash
 go install github.com/merschformann/gobenchtransform@latest
-```
-
-## Help
-
-```bash
-$ gobenchtransform --help
-Transform Go benchmark results into a format that can be used by other tools.
-
-Usage:
-  gobenchtransform [flags]
-
-Flags:
-  -h, --help            help for gobenchtransform
-  -i, --input string    input file (default is stdin)
-  -o, --output string   output file (default is stdout)
-  -q, --quiet           suppress repeating output to stdout
 ```

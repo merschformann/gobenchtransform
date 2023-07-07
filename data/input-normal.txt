@@ -1,0 +1,8 @@
+goos: linux
+goarch: amd64
+pkg: github.com/merschformann/gobenchtransform/example
+cpu: AMD Ryzen 9 3900X 12-Core Processor            
+BenchmarkSlice-24       20196615                55.13 ns/op
+BenchmarkMap-24         100000000               11.10 ns/op
+PASS
+ok      github.com/merschformann/gobenchtransform/example       2.301s
