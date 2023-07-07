@@ -43,5 +43,5 @@ fi
 read -p "Releasing version $VERSION. Are you sure? (y/n) " -n 1 -r
 
 # Release.
-gh release create --title "$VERSION" $NOTES
+gh release create "$VERSION" $NOTES --title "$VERSION"
 
