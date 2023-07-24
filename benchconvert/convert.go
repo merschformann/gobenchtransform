@@ -94,7 +94,7 @@ func ConvertToCSV(input io.Reader, output io.Writer, quiet bool) error {
 				header += ",b_per_op,allocs_per_op"
 			}
 			if !quiet && output != os.Stdout {
-				fmt.Print(header)
+				fmt.Println(header)
 			}
 			_, err = fmt.Fprintln(output, header)
 			if err != nil {
